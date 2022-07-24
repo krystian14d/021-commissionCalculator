@@ -16,7 +16,7 @@ public class CommissionController {
     private final CommissionService commissionService;
 
     @GetMapping("/api")
-    public List<CommissionDto> calculateCommission(@RequestParam(name = "customer_id") List<String> customerIds) {
+    public List<CommissionDto> calculateCommission(@RequestParam(name = "customer_id", defaultValue = "all") List<String> customerIds) {
         return commissionService.calculateCommissionForUsers(customerIds);
     }
 }
